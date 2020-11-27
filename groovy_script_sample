@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    tools {
+        maven 'mymaven'
+    }
+    stages {
+        stage ('clone') {
+            steps {
+                git url: 'https://github.com/Navneettdna/DevOpsClassCodes'
+            }
+        }
+        stage ('compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage ('Code_review') {
+            steps {
+                sh 'mvn -P metrics pmd:pmd'
+            }
+        }
+        stage ('Unit_test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage ('Metric_test') {
+            steps {
+                sh 'mvn cobertura:cobertura -D cobertura.report.format=xml'
+            }
+        }
+        stage ('Package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
+}

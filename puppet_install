@@ -1,0 +1,81 @@
+  831  hostnamectl set-hostname master.example.com
+  832  vim /etc/hosts
+  833  hostname
+  834  vim /etc/hosts
+  835  rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+  836  yum install puppetserver -y
+  837  vim /etc/puppetlabs/puppet/puppet.conf
+  838  vim /etc/sysconfig/puppetserver
+  839  exec bash -l
+  840  systemctl status puppetserver
+  841  systemctl start puppetserver
+  842  systemctl status puppetserver
+  843  history
+  844  cat /etc/hosts
+  845  puppet cert list
+  846  netstat -npla | grep puppet
+  847  ps -ef | grep puppet
+  848  netstat -npla | grep 5825
+  849  systemctl stop firewalld
+  850  puppet cert list
+  851  puppet cert sign -a
+  852  puppet cert list
+  853  puppet cert list -a
+  854  cd /etc/puppetlabs/puppet
+  855  ll
+  856  cd ..
+  857  ll
+  858  cd code/
+  859  ll
+  860  cd environments/
+  861  ll
+  862  cd production/
+  863  cd manifests/
+  864  l
+  865  ll
+  866  cd ..
+  867  ll
+  868  cd manifests/
+  869  ll
+  870  vim site.pp
+  871  puppet --version
+  872  systemctl stop puppetserver
+  873  systemctl status puppetserver
+  874  systemctl start puppetserver
+  875  systemctl status puppetserver
+  876  ll
+  877  vim site.pp
+  878  puppet --help
+  879  puppet catalog --help
+  880  df -kh
+  881  cd /sys/fs/cgroup
+  882  ls -ltr
+  883  cd ..
+  884  ls -tr
+  885  cd
+  886  cat /etc/inittab
+  887   systemctl get-default
+  888  free -t -m
+  889  top
+  890  df -kh
+  891  yum install kubernetes
+  892  ls -ltr
+  893  df -kh
+  894  kubectl get pod
+  895  yum install kubeadm
+  896  netstat -npla | grep puppet
+  897  ps -ef | grep puppet
+  898  netstat -npla | grep 6542
+  899  puppetserver --help
+  900  puppetserver --version
+  901  puppet --version
+  902  cd /etc/puppetlabs/code/environments/production/
+  903  ls -ltr
+  904  cd manifests/
+  905  ls -ltr
+  906  cd ..
+  907  ls -ltr
+  908  cat hiera.yaml
+  909  df -kh
+  910  history
+
