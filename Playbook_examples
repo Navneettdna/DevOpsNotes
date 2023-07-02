@@ -1,0 +1,42 @@
+[ansadmin@ip-172-31-93-246 ~]$ cat playbook2.yml
+---
+  - name: playbook2
+    hosts: webserver
+    become: yes
+    become_user: root
+    tasks:
+      - name: ensure apache is at the latest version
+        yum:
+          name: httpd
+          state: latest
+      - name: ensure apache is running
+        service:
+          name: httpd
+          state: started
+-------------------------------------------------------------------------------------------------------------
+[ansadmin@ip-172-31-93-246 ~]$ cat playbook3.yml
+---
+  - name: Playbook3
+    hosts: webserver
+    become: true
+    become_user: root
+    tasks:
+      - name: Install tomcat9
+        yum:
+          name: tomcat9
+          state: present
+      - name: Tomcat start
+        service:
+          name: tomcat9
+          state: started
+      - name: Deploy war file
+        get_url:
+          url: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+          dest: /var/lib/tomcat9/webapps/
+        notify: Restart tomcat9
+    handlers:
+      - name: Restart tomcat9
+        service:
+          name: tomcat9
+          state: restarted
+
